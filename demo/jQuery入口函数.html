@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="main.js"></script> -->
+</head>
+<body>
+
+    <!-- 引入jQery -->
+    <script src="../jquery-1.12.4.js">
+    /* jquery 入口函数写法 */ 
+    // 写法1  $(document).ready(function(){})
+    $(document).ready(function(){
+        console.log("1");
+    });
+    //写法2  $(function(){});
+    $(function(){
+        console.log("2");
+        /*
+            入口函数解释：$(function(){})
+            1.$ 是jQuery别名  $() = jQuery()  相当于页面初始化函数  当页面加载完之后  会执行jQuery()            
+        */
+    })
+    
+    /* 原生 js入口函数写法*/
+    window.onload() = function(){
+        console.log("3");
+    }
+
+    /*
+        1.入口函数区别：
+            加载顺序：
+                js的入口函数会等页面所有资源加载完毕 才会开始执行js
+                jq的入口函数会等页面的资源加载完毕才执行（即DOM绘制完毕后执行）  但是不会等待图片的加载
+                所以 js代码执行的时间会比jq长一点
+            jqery 的ready和js的onload 不对等
+                执行时机不一致
+                load只能写一次  ready可以写多次（ 能同时执行多个）
+        2.jq 对象  使用jq的方式获取到的对象
+        DOM对象    使用js的方式获取到的对象
+        3.js DOM对象和 jq对象区别与联系
+            联系： jq对象是js对象的一个集合 伪数组 并且自身带有一系列方法的对象
+            DOM对象 不能直接调用jq对象方法  jq对象不能直接调用DOM对象的方法  需要转化
+            DOM=>jq 用美元符号包裹
+             var nav= document.getElementById("nav1");
+             var $nav = $(nav);
+            jq=>DOM  伪数组 通过下标取值
+            $nav[0] 或者 $nav.get(0)
+
+        4.$符号的实质
+            实质上是一个function
+            用法：
+            （1）参数是一个function 入口函数
+            （2）参数是一个DOM对象 用来将DOM对象转换为jq对象
+            （3）参数是一个字符串 用来查找对象 
+
+
+
+
+    */
+
+    // js事件覆盖：  发生在DOM0级事件模型  即类似onclick事件  本质上是赋值操作  所以同一个对象的相同事件函数 先写的会被后面覆盖掉
+    /**/
+    </script>
+</body>
+</html>
