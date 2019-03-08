@@ -64,7 +64,13 @@
             （6）表单对象属性过滤选择器
             （7）表单选择器
           4.筛选选择器（方法）
-            children
+            children("选择器") $("ul").children("li") 子类选择器
+            find("选择器")  $("ul").find("li") 后代选择器
+            siblings("选择器")  $("#first").siblings("li") 查找兄弟节点  不包括自己
+            parent() $("li").parent 查找父亲
+            eq(index) $("li").eq(2)
+            next() 找下一次兄弟
+            prev() 找上一次兄弟
             
         */
        /*

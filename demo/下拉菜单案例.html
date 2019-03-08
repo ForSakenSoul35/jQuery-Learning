@@ -5,10 +5,94 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Page Title</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" media="screen" href="main.css">
-  <script src="main.js"></script>
+  <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+  <script src="main.js"></script> -->
+  <style>
+    *{
+      margin: 0;
+      padding:0;
+    }
+    a{
+      text-decoration: none;
+    }
+    li{
+      list-style-type:  none;
+    }
+    .wrap{
+      margin: 0 auto;
+      width:1000px;
+      height: 200px;
+    }
+    .wrap>ul{
+        width:100%;
+        overflow: hidden;
+        /* 触发BFC 撑起ul高度 */
+
+    }
+    .wrap>ul>li{
+      float: left;
+      background-color: #CCC;
+      border: 2px solid blue;
+      width: 100px;
+      text-align: center;
+    }
+    .wrap>ul>li ul{
+      display: none;
+    }
+  </style>
+  
 </head>
 <body>
-  
+  <div class="wrap">
+    <ul>
+      <li>
+        <a href="#">一级菜单1</a>
+        <ul>
+          <li>二级菜单1</li>
+          <li>二级菜单2</li>
+          <li>二级菜单3</li>
+        </ul>
+      </li>
+      <li>
+          <a href="#">一级菜单2</a>
+          <ul>
+            <li>二级菜单1</li>
+            <li>二级菜单2</li>
+            <li>二级菜单3</li>
+          </ul>
+      </li>
+      <li>
+          <a href="#">一级菜单3</a>
+          <ul>
+            <li>二级菜单1</li>
+            <li>二级菜单2</li>
+            <li>二级菜单3</li>
+          </ul>
+      </li>
+      <li>
+          <a href="#">一级菜单4</a>
+          <ul>
+            <li>二级菜单1</li>
+            <li>二级菜单2</li>
+            <li>二级菜单3</li>
+          </ul>
+      </li>
+
+    </ul>
+  </div>
+  <script src="../jquery-1.12.4.js"></script>
+  <script>
+    $(function(){
+      var $li =  $(".wrap>ul>li")
+
+      $li.mouseover(function(){
+        $(this).children("ul").show();
+      });
+      $li.mouseout(function(){
+        $(this).children("ul").hide();
+      })
+    })
+   
+  </script>
 </body>
 </html>
