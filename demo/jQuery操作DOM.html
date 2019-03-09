@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+  <script src="main.js"></script> -->
+  <style>
+    div{
+      width: 200px;
+      height: 200px;
+      background-color: red;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+  </ul> -->
+  <input type="button" value="显示">
+  <input type="button" value="隐藏">
+  <div></div>
+  <script src="../jquery-1.12.4.js"></script>
+  <script>
+    $(function(){
+      // $("li").css("backgroundColor","red")
+      // .css("color","blue")
+      // .css("fontSize","20px")
+    //   $("li").css({
+    //     background:"red",
+    //     fontSize:"32px"
+    //   });
+    //   var fontSize = $("li").css("fontSize");
+    //   console.log(fontSize);
+      
+    
+      $("[value=显示]").click(function(){
+        // $("div").show(1000);
+        $("div").show(1000,function(){
+          console.log("done");
+        });
+      })
+      $("[value=隐藏]").click(function(){
+        $("div").hide(2000);
+      })
+     
+      
+    })
+
+
+  /*jq操作样式*/
+  /*
+    1.css()方法
+    修改单个样式  css("name样式名","value样式值")
+    修改多个样式  css(obj)
+    获取样式 css("样式名")
+    隐式迭代：
+      设置操作的时候  会给jq内容的所有对象都设置上相同的值
+      获取的时候  只会返回第一个元素对应的值
+    2.class
+    添加类 
+      addClass("类名") 只会在原来的类基础上添加，具体生效的样式 还是得看css样式生效规则（权重，写的顺序等）
+    移出类
+      removeClass("类名")
+    判断类
+      hasClass("类名")
+    切换类 有/无
+      toggleClass("类名")
+  */
+  /*jq操作属性*/
+  /*
+    1.设置属性（能设置自定义属性）
+    设置单个属性
+    attr("name","value")
+    设置多个属性
+    attr(obj)
+    2.获取属性
+    attr("name")
+    ## prop 一般属性是boolean的值 或者不用
+    对于 布尔类型的属性 不用attr方法  用prop方法，用法和attr一样
+
+    
+  */
+  /*jq操作动画*/
+  /*
+  三组基本动画
+  1.隐藏 展示
+  hide  show
+  (1)show 不传参数 没有动画效果
+  (2)show 接收参数 
+    参数可以是毫秒值
+    也可以是固定字符串 fast 200ms normal 400ms slow 600ms
+    还可以接受一个回调函数作为第二个参数
+    最常用的是什么参数都不传
+  2.淡入淡出
+
+  3.滑出滑入
+
+  show
+  hide
+  
+  */
+  /*jq操作节点*/
+  
+  </script>
+</body>
+</html>
+<!-- 
+  jq隐式迭代 链式操作
+  属性选择器：
+  $("[value=显示]")
+ -->
