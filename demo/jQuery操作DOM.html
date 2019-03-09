@@ -90,6 +90,8 @@
   /*jq操作动画*/
   /*
   三组基本动画
+
+  用法基本一致
   1.隐藏 展示
   hide  show
   (1)show 不传参数 没有动画效果
@@ -99,15 +101,72 @@
     还可以接受一个回调函数作为第二个参数
     最常用的是什么参数都不传
   2.淡入淡出
-
+   fadeIn 淡入
+   fadeOut 淡出
+   fadeToggle
+    
   3.滑出滑入
-
+    slidedown 滑入 从上到下 往下
+    slideup 滑出 从下到上 往上
+    slideToggle()  如果是滑入状态 执行滑出状态  反之
   show
   hide
   
+
+  自定义动画 animate方法
+  参数1 对象  里面可以传需要动画的样式
+  参数2 时间  动画执行的时间
+  参数3  效果  swing 摇摆 linenar 线性匀速
+  参数4  回调函数  
+  参数1 必须 
+  
+
+  动画队列
+  jq特性：会把动画存储在一个动画队列里
+  当执行动画时间过短  导致多次触发动画 影响效果
+  解决方法： 在执行新的动画之前 先调用stop方法 停止之前所有的动画
+  $(this).children("li").stop().slideDown();
+  stop方法：
+  参数1 clearQueue 是否清除动画队列  true/false
+  参数2 jumpToEnd 是否跳转到当前动画的最终效果 true/false
+
+
   */
   /*jq操作节点*/
-  
+  /*
+    创建节点 $(this).append(htmlstr) htmlstr为html文本
+      $(this).append('<a  href="#">qwe</a>')
+      => $a=$('<a  href="#">qwe</a>') $(this).append($a)
+    
+    添加节点
+      append 添加到子元素的最后面
+      $("#parent").append($("#children"));
+      appendTo 
+      $("#children").appendTo($("#parent"));
+      appendTo 比较常用
+
+      prepend 添加到子元素的前面
+      prependTo
+
+      after() 添加到子元素后面 作为下一个兄弟元素
+      before() 添加到子元素前面 作为上一个兄弟元素 
+    
+    清空节点
+      empty
+      $("div").empty()
+      或者$("div").html("")  
+      建议使用empty方法  html方法  本质上清空掉内容 但是不会清空一些已经注册的事件  会发生内存泄露
+    
+    删除节点
+    $("div").remove 删除div
+
+    克隆节点
+    不传参数也是深度复制
+    参数默认为false
+    如需克隆节点上绑定的事件  参数需要true
+    $("div").clone()
+    
+  */
   </script>
 </body>
 </html>
