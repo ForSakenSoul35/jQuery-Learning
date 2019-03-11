@@ -167,6 +167,46 @@
     $("div").clone()
     
   */
+
+  /*
+    jq特殊属性操作
+    1.val  
+    获取value属性的值
+    $("#btn").val() 或者 $("#btn").attr("value")
+    修改value属性
+    $("#btn").val("aa");
+   
+
+    2.html  text
+    获取/设置
+      html()相当于innerHTML方法
+      text()相当于innerText方法
+      innerHTML获取标签之间的所有内容 包括标签
+      innerText获取标签之间的文本 
+      设置的时候  用innerHTML设置时 能够识别标签  并且将标签转化 innerText不会
+
+    3.width height
+    获取  $("div").width()
+    设置  $("div").width(400)
+    获取页面可视区的宽度和高度 不包含滚动条等边线
+    $(window).width()  类似clientWidth 
+    innerWidth的值 = width+padding
+    outerWidth = width+padding+border
+    outerWidth(true) = width+padding+border+margin
+    
+    4.scrollTop  scrollLeft
+    scrollTop() 获取页面被卷曲的高度
+    scrollLeft() 获取页面被卷曲的宽度
+
+
+    5.offset position
+    都是用来获取元素的位置
+    offset 获取元素相对于document的位置
+    position 获取元素相对于有定位的父元素的位置
+
+    offset scroll client
+    
+  */
   </script>
 </body>
 </html>
