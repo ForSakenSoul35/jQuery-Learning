@@ -13,10 +13,55 @@
   <script>
     /*
     jQuery事件机制：
-    简单注册事件
+    1 简单注册事件
       $("li").click(function(){})
       一次只能注册一个事件  不会覆盖
+      动态创建出来的元素 没有注册事件
+    2 bind
+      $("li").bind(
+        click:function(){},
+        mouseenter:function(){}
+        )
+      能够一次注册多个事件
+    3 委托事件
+    利用事件冒泡的原理，要实现子元素的效果，给父元素注册事件 
+    $("li").delegate("p",click,function(){})
+    第一个参数 事件最终执行的元素
+    第二 事件的类型
+    第三 事件函数
+    4 on事件绑定（jq1.7之后 统一  用on）
+    */
+    /*
+    事件注册的两种方式：
+    简单事件
+    $("p").on("click",function(){})//给p注册事件，简单事件
     委托事件
+    $("p").on("click","p",function(){})//指定子元素        
+    */
+    /*
+    事件解绑：
+    off()
+    $("p").off("click")//移出p元素的click事件
+    $("p").off()//移除p元素的所有事件
+
+    事件触发
+    $("p").click();
+    $("p").trigger("click");
+    
+    */
+    /*
+      事件对象
+      jq事件对象实际上就是对jd事件对象的一个封装，处理了兼容性
+
+      属性值：
+      screenX/screenY 对应屏幕最左上角的值
+      clientX/clientY  距离屏幕左上角的值 忽视滚动条
+      pageX/pageY  距离页面最顶部左上角的位置 会计算滚动条的值
+
+      阻止事件冒泡行为 event.stopPropagation()
+      阻止浏览器默认行为 event.preventDefault()
+      既能阻止事件冒泡 又能阻止浏览器默认行为  return false;
+    
     */
 
   </script>
