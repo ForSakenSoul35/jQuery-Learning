@@ -184,6 +184,11 @@ $el.prepend(newEl)
 el.parentNode.removeChild(el);//移除自己
 - JQ
 $el.remove()
+移出所有子节点
+- JS
+el.innerHTML = ""
+- JQ
+$el.empty()
 
 ## 事件绑定
 ### 入口函数对比
