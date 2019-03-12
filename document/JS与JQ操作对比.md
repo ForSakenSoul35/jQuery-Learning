@@ -94,21 +94,96 @@ el.styel.属性名 只能获取行内样式的属性值
 el.classList.add("className")
 - JQ
 $el.addClass("className")
+### 移除类
+- JS 
+el.classList.remove("className")
+- JQ
+$el.removeClass("className")
+### 判断类
+- JS
+el.classList.contains("className")
+- JQ
+$el.hasClass("className")
+### 切换类(从有到无)
+- JS
+el.classList.toggle("className")
+- JQ
+$el.toggleClass("className")
+
+### 获取页面高度
+1. 屏幕信息
+获取屏幕可视区域的宽高
+screen.height 屏幕高度
+screen.availHeight 屏幕可用高度
+2. 浏览器信息
+- JS
+    浏览器高度 window.outerHeight 跟浏览器大小有关系
+    浏览器器内可用高度 window.innerHeight//包括了水平滚动条的高度 跟浏览器大小有关系
+- JQ $(window).height
+3. 页面信息body
+body.offsetHeight body总高度 包括滚动条滚动的部分
+body.clientHeight body展示的高度 表示body在浏览器内展示的高度（跟浏览器大小有关系）
+4.元素
+绝对位置
+每个元素都有offsetTop和offsetLeft属性表示该元素左上角与父元素左上角的距离
+相对位置：
+  
 ### width/height
 - JS
 - JQ
-### position/offset
+### position/offset  
+offset 获取元素距离document的位置
+position 获取元素距离有定位的父元素的位置
 - JS
-- JQ
-### scrollTop
-- JS
-- JQ
+position:
+  left:el.offsetLeft top:el.offsetTop
 
+- JQ
+$el.position() 返回值为对象 {left:100,top:100}
+$el.offset()
+### scrollTop  scrollLeft 页面被卷曲的高度/宽度
+- JS
+
+- JQ
+$(window).scrollTop;
 ## DOM操作
+### 获取/设置文本内容
+- JS
+获取 el.textContent;
+设置 el.textContent= ""
+- JQ
+$el.text()
+### 获取HTML内容
+- JS
+获取 el.innerHTML()
+设置 el.innerHTML(htmlstring)
+- JQ
+$el.html()
 ### 创建节点
+- JS 
+var el = '<p>我是通过HTML创建的</p>'
+var el = document.createElement("p")
+p.innerHTML= "我是通过js创建的"
+- JQ
+var $el = $('<p></p>').text("我是通过jq创建的")
 ### 添加节点
-### 删除节点
-
+1. append
+- JS
+el.appendChild(newEl)
+- JQ
+$el.append(newEL)
+newEL.appendTo($el)
+2. prePend
+- JS 
+el.insertBefore(newEl,el.firstChild)
+- JQ
+$el.prepend(htmlString)
+$el.prepend(newEl)
+### 删除节点（元素）
+- JS
+el.parentNode.removeChild(el);//移除自己
+- JQ
+$el.remove()
 
 ## 事件绑定
 ### 入口函数对比
@@ -124,3 +199,16 @@ $el.addClass("className")
 2. JQ  find方法和children方法
 find方法找元素的所有后代
 children方法只返回元素的儿子元素
+3. offset scroll client
+width height
+获取元素的宽度和高度(就是设置的css样式width的值)
+$(el).width();
+$(el).innerWidth();//padding+width
+$(el).outerWidth();//padding+width+border
+$(el).outerWidth(true);//padding+width+border+margin
+
+设置元素的宽度和高度
+$(el).width(400);
+
+获取页面可视区域的宽高
+$(window).width()
